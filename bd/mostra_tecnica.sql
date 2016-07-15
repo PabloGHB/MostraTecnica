@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2016 at 09:01 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.6.23
+-- Generation Time: 15-Jul-2016 às 03:07
+-- Versão do servidor: 10.1.13-MariaDB
+-- PHP Version: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `autor`
+-- Estrutura da tabela `autor`
 --
 
 CREATE TABLE `autor` (
@@ -36,7 +36,7 @@ CREATE TABLE `autor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `autor`
+-- Extraindo dados da tabela `autor`
 --
 
 INSERT INTO `autor` (`Id_Autor`, `Nome`, `Sobrenome`, `Email`, `Senha`, `Usuario`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `autor` (`Id_Autor`, `Nome`, `Sobrenome`, `Email`, `Senha`, `Usuario
 -- --------------------------------------------------------
 
 --
--- Table structure for table `avaliacao`
+-- Estrutura da tabela `avaliacao`
 --
 
 CREATE TABLE `avaliacao` (
@@ -59,19 +59,20 @@ CREATE TABLE `avaliacao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `avaliacao`
+-- Extraindo dados da tabela `avaliacao`
 --
 
 INSERT INTO `avaliacao` (`Id_Avaliacao`, `Id_Trabalho`, `Id_Revisor`, `Nota_1`, `Nota_2`, `Nota_3`, `Nota_Final`) VALUES
 (1, 1, 1, 4, 4, 4, 4),
 (2, 2, 3, 2, 2, 2, 2),
 (3, 3, 3, 3, 3, 3, 3),
-(4, 4, 3, 3, 3, 3, 4);
+(4, 4, 3, 3, 3, 3, 4),
+(5, 6, 3, 3, 3, 3, 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cnpq`
+-- Estrutura da tabela `cnpq`
 --
 
 CREATE TABLE `cnpq` (
@@ -80,7 +81,7 @@ CREATE TABLE `cnpq` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cnpq`
+-- Extraindo dados da tabela `cnpq`
 --
 
 INSERT INTO `cnpq` (`Id_Area`, `Area`) VALUES
@@ -102,7 +103,7 @@ INSERT INTO `cnpq` (`Id_Area`, `Area`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `organizador`
+-- Estrutura da tabela `organizador`
 --
 
 CREATE TABLE `organizador` (
@@ -115,7 +116,7 @@ CREATE TABLE `organizador` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `organizador`
+-- Extraindo dados da tabela `organizador`
 --
 
 INSERT INTO `organizador` (`Id_Organizador`, `Nome`, `Sobrenome`, `Email`, `Senha`, `Usuario`) VALUES
@@ -124,7 +125,7 @@ INSERT INTO `organizador` (`Id_Organizador`, `Nome`, `Sobrenome`, `Email`, `Senh
 -- --------------------------------------------------------
 
 --
--- Table structure for table `revisor`
+-- Estrutura da tabela `revisor`
 --
 
 CREATE TABLE `revisor` (
@@ -138,7 +139,7 @@ CREATE TABLE `revisor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `revisor`
+-- Extraindo dados da tabela `revisor`
 --
 
 INSERT INTO `revisor` (`Id_Revisor`, `Nome`, `Sobrenome`, `Email`, `Senha`, `Id_Area`, `Usuario`) VALUES
@@ -150,7 +151,7 @@ INSERT INTO `revisor` (`Id_Revisor`, `Nome`, `Sobrenome`, `Email`, `Senha`, `Id_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `trabalho`
+-- Estrutura da tabela `trabalho`
 --
 
 CREATE TABLE `trabalho` (
@@ -165,16 +166,16 @@ CREATE TABLE `trabalho` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `trabalho`
+-- Extraindo dados da tabela `trabalho`
 --
 
 INSERT INTO `trabalho` (`Titulo`, `Autor`, `Area`, `Resumo`, `Id_Autor`, `Id_Trabalho`, `Estado`, `Revisor`) VALUES
 ('Portas Abertas', 'Eu', 'Linguística', 'Nenhum.', 1, 1, 'Aprovado', '1'),
-('Mario Bros', 'Eu', 'Informática', 'Nenhum.', 1, 2, 'Reprovado', '3'),
-('Filmes Interativos', 'Eu', 'Informática', 'Nenhum.', 1, 3, 'Avaliado', '3'),
-('Desgin Gráfico', 'Eu', 'Informática', 'Nenhum.', 1, 4, 'Aprovado', '3'),
-('Literatura', 'Eu', 'Linguística', 'Nenhum.', 1, 5, 'Encaminhado', '1'),
-('Exatas Aplicada', 'Eu', 'Matemática ', 'Nenhum.', 1, 6, 'Pendente', '0');
+('Filmes Interativos', 'Eu', 'Informática', 'Nenhum.', 1, 2, 'Reprovado', '3'),
+('Desgin Gráfico', 'Eu', 'Informática', 'Nenhum.', 1, 3, 'Aprovado', '3'),
+('Literatura', 'Eu', 'Linguística', 'Nenhum.', 1, 4, 'Encaminhado', '1'),
+('Contos de Cordéis', 'Eu', 'Linguística', 'Nenhum.', 1, 5, 'Pendente', '0'),
+('Jogo Educacional', 'Eu', 'Informática', 'Nenhum.', 1, 6, 'Avaliado', '3');
 
 --
 -- Indexes for dumped tables
@@ -230,7 +231,7 @@ ALTER TABLE `autor`
 -- AUTO_INCREMENT for table `avaliacao`
 --
 ALTER TABLE `avaliacao`
-  MODIFY `Id_Avaliacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id_Avaliacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `cnpq`
 --
