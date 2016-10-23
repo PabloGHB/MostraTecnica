@@ -7,4 +7,4 @@ Sistema para gerenciamento de trabalhos acadêmicos.
 2. Extraia na pasta;
 3. Aproveite.
 
-Lembre de importar o banco de dados. 
+  Lembre de importar o banco de dados. 
